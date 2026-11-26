@@ -1,0 +1,66 @@
+{
+  "project_name": "BEANWISE",
+  "project_title": "AI-Powered Dry Bean Classification",
+  "dataset": "UCI Dry Bean Dataset (ID 602)",
+  "raw_records": 13611,
+  "cleaned_records": 13543,
+  "removed_duplicates": 68,
+  "raw_features_count": 16,
+  "engineered_features_count": 6,
+  "total_model_features": 22,
+  "target_classes_count": 7,
+  "target_classes": [
+    "BARBUNYA",
+    "BOMBAY",
+    "CALI",
+    "DERMASON",
+    "HOROZ",
+    "SEKER",
+    "SIRA"
+  ],
+  "partition_sizes": {
+    "train_size": 9479,
+    "val_size": 2032,
+    "test_size": 2032,
+    "train_pct": 70.0,
+    "val_pct": 15.0,
+    "test_pct": 15.0
+  },
+  "selected_model": "Support Vector Classifier (RBF Kernel)",
+  "selected_hyperparameters": {
+    "C": 2.0,
+    "kernel": "rbf",
+    "gamma": "scale"
+  },
+  "cross_validation_results": {
+    "cv_folds": 5,
+    "cv_strategy": "StratifiedKFold",
+    "mean_accuracy": 0.9317,
+    "std_accuracy": 0.0075,
+    "mean_macro_f1": 0.9416,
+    "std_macro_f1": 0.0076
+  },
+  "independent_test_results": {
+    "accuracy": 0.9222,
+    "balanced_accuracy": 0.9326,
+    "macro_precision": 0.9346,
+    "macro_recall": 0.9326,
+    "macro_f1": 0.9334,
+    "weighted_f1": 0.9224,
+    "matthews_corrcoef": 0.906,
+    "cohens_kappa": 0.9059,
+    "roc_auc_ovr": 0.9901,
+    "inference_duration_seconds": 0.879,
+    "latency_per_sample_ms": 0.4326
+  },
+  "per_class_test_f1": {
+    "BARBUNYA": 0.9298,
+    "BOMBAY": 1.0,
+    "CALI": 0.9319,
+    "DERMASON": 0.9015,
+    "HOROZ": 0.959,
+    "SEKER": 0.9525,
+    "SIRA": 0.8588
+  },
+  "status": "COMPLETED_PRODUCTION_VERIFIED"
+}

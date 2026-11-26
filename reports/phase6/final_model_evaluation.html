@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BEANWISE — Phase 6 Final Independent Model Evaluation</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #1e293b; max-width: 1050px; margin: 0 auto; padding: 25px; }
+        h1, h2, h3 { color: #0f172a; }
+        table { border-collapse: collapse; width: 100%; margin: 18px 0; }
+        th, td { border: 1px solid #cbd5e1; padding: 9px 12px; text-align: left; }
+        th { background-color: #f8fafc; color: #334155; }
+        tr:nth-child(even) { background-color: #f1f5f9; }
+        .metric-card { background: #f8fafc; border-left: 4px solid #2563eb; padding: 14px 18px; margin: 16px 0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>BEANWISE — Phase 6 Final Model Independent Evaluation</h1>
+    <p><strong>Evaluation Target:</strong> Held-Out Independent Test Partition (N = 2,032 observations, 15.0% of dataset)</p>
+    
+    <div class="metric-card">
+        <h3>Independent Test Metrics Summary</h3>
+        <p><strong>Selected Model Architecture:</strong> Support Vector Classifier (RBF Kernel)</p>
+        <p><strong>Test Accuracy:</strong> 92.22% | <strong>Balanced Accuracy:</strong> 93.26%</p>
+        <p><strong>Macro F1-Score:</strong> 0.9334 | <strong>Weighted F1-Score:</strong> 0.9224</p>
+        <p><strong>Matthews Correlation Coefficient (MCC):</strong> 0.9060 | <strong>Cohen's Kappa:</strong> 0.9059</p>
+        <p><strong>Inference Latency:</strong> 0.4326 ms per sample (0.8790s total)</p>
+    </div>
+
+    <h2>1. Per-Cultivar Performance Breakdown</h2>
+    <table border="1" class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Cultivar</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1-Score</th>
+      <th>Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BARBUNYA</td>
+      <td>0.9368</td>
+      <td>0.8990</td>
+      <td>0.9175</td>
+      <td>198</td>
+    </tr>
+    <tr>
+      <td>BOMBAY</td>
+      <td>1.0000</td>
+      <td>1.0000</td>
+      <td>1.0000</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>CALI</td>
+      <td>0.9173</td>
+      <td>0.9510</td>
+      <td>0.9339</td>
+      <td>245</td>
+    </tr>
+    <tr>
+      <td>DERMASON</td>
+      <td>0.9278</td>
+      <td>0.9173</td>
+      <td>0.9225</td>
+      <td>532</td>
+    </tr>
+    <tr>
+      <td>HOROZ</td>
+      <td>0.9596</td>
+      <td>0.9355</td>
+      <td>0.9474</td>
+      <td>279</td>
+    </tr>
+    <tr>
+      <td>SEKER</td>
+      <td>0.9472</td>
+      <td>0.9441</td>
+      <td>0.9456</td>
+      <td>304</td>
+    </tr>
+    <tr>
+      <td>SIRA</td>
+      <td>0.8533</td>
+      <td>0.8813</td>
+      <td>0.8671</td>
+      <td>396</td>
+    </tr>
+  </tbody>
+</table>
+
+    <h2>2. Raw Confusion Matrix</h2>
+    <table border="1" class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>BARBUNYA</th>
+      <th>BOMBAY</th>
+      <th>CALI</th>
+      <th>DERMASON</th>
+      <th>HOROZ</th>
+      <th>SEKER</th>
+      <th>SIRA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>BARBUNYA</th>
+      <td>178</td>
+      <td>0</td>
+      <td>13</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>BOMBAY</th>
+      <td>0</td>
+      <td>78</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CALI</th>
+      <td>5</td>
+      <td>0</td>
+      <td>233</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>DERMASON</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>488</td>
+      <td>0</td>
+      <td>7</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <th>HOROZ</th>
+      <td>0</td>
+      <td>0</td>
+      <td>8</td>
+      <td>3</td>
+      <td>261</td>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>SEKER</th>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>287</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>SIRA</th>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>32</td>
+      <td>6</td>
+      <td>6</td>
+      <td>349</td>
+    </tr>
+  </tbody>
+</table>
+
+    <h2>3. Top Misclassification Confusion Pairs</h2>
+    <table border="1" class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>True Cultivar</th>
+      <th>Predicted Cultivar</th>
+      <th>Misclassified Count</th>
+      <th>Misclassified % of Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DERMASON</td>
+      <td>SIRA</td>
+      <td>37</td>
+      <td>6.95</td>
+    </tr>
+    <tr>
+      <td>SIRA</td>
+      <td>DERMASON</td>
+      <td>32</td>
+      <td>8.08</td>
+    </tr>
+    <tr>
+      <td>BARBUNYA</td>
+      <td>CALI</td>
+      <td>13</td>
+      <td>6.57</td>
+    </tr>
+    <tr>
+      <td>SEKER</td>
+      <td>SIRA</td>
+      <td>10</td>
+      <td>3.29</td>
+    </tr>
+    <tr>
+      <td>HOROZ</td>
+      <td>CALI</td>
+      <td>8</td>
+      <td>2.87</td>
+    </tr>
+  </tbody>
+</table>
+
+    <footer style="margin-top: 40px; padding-top: 15px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 0.9em;">
+        BEANWISE Machine Learning Platform — Independent Evaluation Completed.
+    </footer>
+</body>
+</html>

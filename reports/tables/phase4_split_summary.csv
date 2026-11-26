@@ -1,0 +1,4 @@
+Partition,Observations,Percentage,Role
+Training Set,9479,69.99%,Model fitting & feature selection
+Validation Set,2032,15.0%,Hyperparameter tuning & model comparison
+Test Set (Held-Out),2032,15.0%,Untouched final model certification

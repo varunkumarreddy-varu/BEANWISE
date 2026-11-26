@@ -1,0 +1,55 @@
+{
+  "train_samples": 9479,
+  "val_samples": 2032,
+  "test_samples": 2032,
+  "total_candidate_features": 22,
+  "top_features_by_mutual_info": {
+    "Perimeter": 1.0579290471819398,
+    "ConvexArea": 1.0402257214090243,
+    "EquivDiameter": 1.029785511494596,
+    "Area": 1.0292914688877959,
+    "MajorAxisLength": 0.9905037228083344
+  },
+  "top_features_by_anova": [
+    {
+      "Feature": "Area",
+      "ANOVA F-Score": 20803.065004790584
+    },
+    {
+      "Feature": "ConvexArea",
+      "ANOVA F-Score": 20792.55315771885
+    },
+    {
+      "Feature": "EquivDiameter",
+      "ANOVA F-Score": 17921.93186957524
+    },
+    {
+      "Feature": "Perimeter",
+      "ANOVA F-Score": 17270.925823965295
+    },
+    {
+      "Feature": "Area_to_Perimeter",
+      "ANOVA F-Score": 16325.742728648967
+    }
+  ],
+  "top_features_by_rf": {
+    "Perimeter": 0.0929870201604344,
+    "EquivDiameter_to_MajorAxis": 0.07412793015490518,
+    "MajorAxisLength": 0.06665573010329534,
+    "ShapeFactor1": 0.0650491517093555,
+    "MinorAxisLength": 0.0645940690955814
+  },
+  "pca_cumulative_variance_3_components": 0.8991,
+  "selected_candidate_subset": [
+    "ShapeFactor4",
+    "EquivDiameter",
+    "ShapeFactor2",
+    "Area",
+    "roundness",
+    "ShapeFactor3",
+    "Perimeter",
+    "Area_to_Perimeter",
+    "Compactness",
+    "Axis_Ratio"
+  ]
+}

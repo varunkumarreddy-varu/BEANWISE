@@ -1,0 +1,17 @@
+Feature,IQR Lower Bound,IQR Upper Bound,IQR Outlier Count,IQR Outlier Pct,Z-Score (|z|>3) Count,Z-Score Outlier Pct
+Area,-1178.0,98838.0,551,4.05,483,3.55
+Perimeter,292.9892,1387.7473,500,3.67,404,2.97
+MajorAxisLength,68.5166,561.2821,379,2.78,316,2.32
+MinorAxisLength,114.0728,278.8071,569,4.18,508,3.73
+AspectRation,1.0201,2.1193,473,3.48,15,0.11
+Eccentricity,0.5741,0.9523,843,6.19,125,0.92
+ConvexArea,-1654.75,100663.25,550,4.04,483,3.55
+EquivDiameter,118.5003,376.0142,526,3.86,465,3.42
+Extent,0.6163,0.8892,275,2.02,135,0.99
+Solidity,0.9792,0.9965,778,5.72,238,1.75
+roundness,0.7049,1.044,91,0.67,74,0.54
+Compactness,0.6548,0.942,109,0.8,1,0.01
+ShapeFactor1,0.0038,0.0093,533,3.92,59,0.43
+ShapeFactor2,-0.0004,0.0037,0,0.0,5,0.04
+ShapeFactor3,0.4094,0.868,195,1.43,8,0.06
+ShapeFactor4,0.9874,1.0042,767,5.64,242,1.78

@@ -1,0 +1,163 @@
+{
+  "registered_models": [
+    {
+      "Model": "svm_rbf",
+      "Validation Accuracy": 0.9291,
+      "Validation Macro Precision": 0.9392,
+      "Validation Macro Recall": 0.9388,
+      "Validation Macro F1": 0.9389,
+      "Validation Weighted F1": 0.929,
+      "Fit Time (s)": 0.3858,
+      "Inference Time (s)": 0.4523,
+      "Rank": 1
+    },
+    {
+      "Model": "svm_rbf_tuned",
+      "Validation Accuracy": 0.9257,
+      "Validation Macro Precision": 0.9375,
+      "Validation Macro Recall": 0.9367,
+      "Validation Macro F1": 0.9369,
+      "Validation Weighted F1": 0.9254,
+      "Fit Time (s)": 0.5622,
+      "Inference Time (s)": 0.2795,
+      "Rank": 2
+    },
+    {
+      "Model": "xgboost",
+      "Validation Accuracy": 0.9247,
+      "Validation Macro Precision": 0.9356,
+      "Validation Macro Recall": 0.9365,
+      "Validation Macro F1": 0.9359,
+      "Validation Weighted F1": 0.9244,
+      "Fit Time (s)": 1.0934,
+      "Inference Time (s)": 0.0099,
+      "Rank": 3
+    },
+    {
+      "Model": "xgboost_tuned",
+      "Validation Accuracy": 0.9257,
+      "Validation Macro Precision": 0.9363,
+      "Validation Macro Recall": 0.9356,
+      "Validation Macro F1": 0.9358,
+      "Validation Weighted F1": 0.9255,
+      "Fit Time (s)": 1.3429,
+      "Inference Time (s)": 0.0093,
+      "Rank": 4
+    },
+    {
+      "Model": "logistic_regression",
+      "Validation Accuracy": 0.9227,
+      "Validation Macro Precision": 0.9318,
+      "Validation Macro Recall": 0.9312,
+      "Validation Macro F1": 0.9314,
+      "Validation Weighted F1": 0.9226,
+      "Fit Time (s)": 0.2211,
+      "Inference Time (s)": 0.002,
+      "Rank": 5
+    },
+    {
+      "Model": "hist_gradient_boosting",
+      "Validation Accuracy": 0.9203,
+      "Validation Macro Precision": 0.9318,
+      "Validation Macro Recall": 0.9311,
+      "Validation Macro F1": 0.9313,
+      "Validation Weighted F1": 0.92,
+      "Fit Time (s)": 3.5703,
+      "Inference Time (s)": 0.0386,
+      "Rank": 6
+    },
+    {
+      "Model": "gradient_boosting",
+      "Validation Accuracy": 0.9178,
+      "Validation Macro Precision": 0.9289,
+      "Validation Macro Recall": 0.9279,
+      "Validation Macro F1": 0.9283,
+      "Validation Weighted F1": 0.9176,
+      "Fit Time (s)": 87.1168,
+      "Inference Time (s)": 0.0426,
+      "Rank": 7
+    },
+    {
+      "Model": "random_forest_tuned",
+      "Validation Accuracy": 0.9173,
+      "Validation Macro Precision": 0.9297,
+      "Validation Macro Recall": 0.9266,
+      "Validation Macro F1": 0.9278,
+      "Validation Weighted F1": 0.9169,
+      "Fit Time (s)": 0.5238,
+      "Inference Time (s)": 0.086,
+      "Rank": 8
+    },
+    {
+      "Model": "random_forest",
+      "Validation Accuracy": 0.9168,
+      "Validation Macro Precision": 0.9289,
+      "Validation Macro Recall": 0.9269,
+      "Validation Macro F1": 0.9277,
+      "Validation Weighted F1": 0.9164,
+      "Fit Time (s)": 0.7541,
+      "Inference Time (s)": 0.0911,
+      "Rank": 9
+    },
+    {
+      "Model": "knn",
+      "Validation Accuracy": 0.9149,
+      "Validation Macro Precision": 0.9274,
+      "Validation Macro Recall": 0.9271,
+      "Validation Macro F1": 0.9272,
+      "Validation Weighted F1": 0.9146,
+      "Fit Time (s)": 0.0258,
+      "Inference Time (s)": 0.1605,
+      "Rank": 10
+    },
+    {
+      "Model": "extra_trees",
+      "Validation Accuracy": 0.9178,
+      "Validation Macro Precision": 0.9286,
+      "Validation Macro Recall": 0.9262,
+      "Validation Macro F1": 0.9272,
+      "Validation Weighted F1": 0.9176,
+      "Fit Time (s)": 0.4164,
+      "Inference Time (s)": 0.0891,
+      "Rank": 11
+    },
+    {
+      "Model": "decision_tree",
+      "Validation Accuracy": 0.9021,
+      "Validation Macro Precision": 0.9169,
+      "Validation Macro Recall": 0.917,
+      "Validation Macro F1": 0.9168,
+      "Validation Weighted F1": 0.9018,
+      "Fit Time (s)": 0.2161,
+      "Inference Time (s)": 0.0047,
+      "Rank": 12
+    }
+  ],
+  "best_model": "svm_rbf",
+  "tuning_summary": [
+    {
+      "Base Model": "svm_rbf",
+      "Tuned Model": "svm_rbf_tuned",
+      "Best CV Macro F1": 0.9457,
+      "Best Parameters": "{'classifier__C': 10.0, 'classifier__gamma': 0.05}",
+      "Tuning Search Time (s)": 4.53,
+      "Total Candidates Evaluated": 9
+    },
+    {
+      "Base Model": "xgboost",
+      "Tuned Model": "xgboost_tuned",
+      "Best CV Macro F1": 0.9439,
+      "Best Parameters": "{'classifier__learning_rate': 0.05, 'classifier__max_depth': 4, 'classifier__n_estimators': 200}",
+      "Tuning Search Time (s)": 19.95,
+      "Total Candidates Evaluated": 8
+    },
+    {
+      "Base Model": "random_forest",
+      "Tuned Model": "random_forest_tuned",
+      "Best CV Macro F1": 0.9367,
+      "Best Parameters": "{'classifier__max_depth': 15, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 100}",
+      "Tuning Search Time (s)": 26.28,
+      "Total Candidates Evaluated": 12
+    }
+  ]
+}

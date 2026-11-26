@@ -1,0 +1,4 @@
+Feature Set,Total Features,Description
+Original Baseline,16,16 standard geometric and morphological features from UCI source
+Engineered Set,22,"Original 16 + 6 domain ratios (Area/Perimeter, Axis Ratios, Compactness/Roundness)"
+Selected Top-10,10,Top 10 features identified by consolidated RFE and multi-criteria ranking

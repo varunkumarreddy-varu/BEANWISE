@@ -1,0 +1,125 @@
+# ==============================================================================
+# BEANWISE - Git Ignore Configuration
+# ==============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# C extensions
+*.obj
+*.o
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Pytest & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Logs & Runtime Outputs
+logs/*.log
+*.log
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# IDE & Editor Specific files
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Large Raw Datasets & Binary Artifacts (Track structures, ignore large generated binaries)
+# Note: Keep placeholder / README files in dataset and artifacts directories
+dataset/raw/*.zip
+dataset/raw/*.tar.gz
+artifacts/models/*.bin
+
+# AIML-2A GitHub submission rules
+
+# Exclude raw datasets
+data/raw/*
+!data/raw/README.md
+
+# Ignore CSV files by default
+*.csv
+
+# Keep batch prediction template
+!assets/templates/batch_prediction_template.csv
+
+# Keep important analysis tables
+!reports/tables/
+reports/tables/*
+!reports/tables/*.csv
+
+# Keep model evaluation reports
+!reports/model_evaluation/
+!reports/model_evaluation/*.csv
+
+# Keep Phase 6 evaluation reports
+!reports/phase6/
+!reports/phase6/*.csv
+
+# Ignore large datasets and archives
+*.xlsx
+*.xls
+*.zip
+*.arff
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Keep only the model required by the application
+artifacts/models/*.joblib
+!artifacts/models/best_model.joblib
+
+# Ignore logs and caches
+logs/*
+.pytest_cache/
+__pycache__/

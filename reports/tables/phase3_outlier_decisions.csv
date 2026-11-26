@@ -1,0 +1,5 @@
+Feature Category,Statistical Outliers Observed,Treatment Decision,Scientific Justification
+"Dimensional Scale (Area, Perimeter, ConvexArea, EquivDiameter)","High (Area: 577 IQR outliers, ConvexArea: 565)",Retain biological extremes without truncation,Corresponds to legitimately large Bombay variety; truncation would discard true cultivar identity
+"Axis Dimensions (MajorAxisLength, MinorAxisLength)","Moderate (MinorAxisLength: 491, MajorAxisLength: 174)",Retain biological extremes without truncation,Reflects natural seed length and width variations across commercial bean cultivars
+"Boundary Ratios (AspectRation, Eccentricity, Solidity, roundness)","Low to Moderate (AspectRation: 355, roundness: 235)",Retain biological extremes without truncation,Reflects natural variation in seed circularity and elongation
+Morphological Shape Factors (ShapeFactor1 through ShapeFactor4),"Moderate (ShapeFactor2: 382, ShapeFactor1: 89)",Retain biological extremes without truncation,Key discriminative shape factors; capping would damage model decision boundaries

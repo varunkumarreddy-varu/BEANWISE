@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEANWISE - Phase 2 Exploratory Data Analysis Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292e;
+            background-color: #f6f8fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0366d6;
+            border-bottom: 2px solid #eaecef;
+            padding-bottom: 12px;
+            margin-top: 0;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1b1f23;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 8px;
+            margin-top: 35px;
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #24292e;
+            margin-top: 25px;
+        }
+        p, li {
+            font-size: 14.5px;
+            color: #444d56;
+        }
+        .metadata-box {
+            background: #f1f8ff;
+            border: 1px solid #c8e1ff;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13.5px;
+        }
+        th, td {
+            padding: 9px 12px;
+            text-align: left;
+            border: 1px solid #e1e4e8;
+        }
+        th {
+            background-color: #fafbfc;
+            font-weight: 600;
+            color: #24292e;
+        }
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+        .figure-card {
+            margin: 30px 0;
+            padding: 15px;
+            background: #fafbfc;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .figure-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #eaecef;
+        }
+        .figure-caption {
+            font-size: 13px;
+            color: #586069;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .kpi-card {
+            background: #fafbfc;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .kpi-num {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0366d6;
+        }
+        .kpi-label {
+            font-size: 12px;
+            color: #586069;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+        .nav-links {
+            margin: 20px 0;
+            padding: 12px;
+            background: #f6f8fa;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+        .nav-links a {
+            color: #0366d6;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>BEANWISE: Dry Bean Classification</h1>
+    <p><strong>Phase 2 Technical Report: Dataset Understanding, Data Quality Audit, and Exploratory Data Analysis</strong></p>
+
+    <div class="metadata-box">
+        <strong>Academic Context:</strong> B.Tech AIML Individual Data Science & Machine Learning Project<br>
+        <strong>Dataset Source:</strong> UCI Machine Learning Repository (Dry Bean Dataset, ID 602)<br>
+        <strong>Original Source File:</strong> <code>DryBeanDataset/Dry_Bean_Dataset.xlsx</code> (Checksum verified)<br>
+        <strong>Report Generation Date:</strong> 2026-11-26
+    </div>
+
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-num">13,611</div>
+            <div class="kpi-label">Total Observations</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-num">16</div>
+            <div class="kpi-label">Numerical Features</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-num">7</div>
+            <div class="kpi-label">Target Cultivars</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-num">0</div>
+            <div class="kpi-label">Missing Values</div>
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <strong>Interactive Plotly Visualizations:</strong>
+        <a href="figures/interactive_class_distribution.html" target="_blank">Class Distribution HTML</a>
+        <a href="figures/interactive_correlation.html" target="_blank">Correlation Heatmap HTML</a>
+        <a href="figures/interactive_scatter.html" target="_blank">Area vs Perimeter Scatter HTML</a>
+        <a href="figures/interactive_parallel_coordinates.html" target="_blank">Parallel Coordinates HTML</a>
+    </div>
+
+    <h2>1. Executive Summary and Dataset Overview</h2>
+    <p>
+        Phase 2 established a rigorous exploratory baseline for the UCI Dry Bean Dataset without altering the raw data.
+        The dataset comprises 13,611 observations across 16 geometric, dimensional, and shape features extracted from
+        high-resolution grain imagery, alongside a single target column (<code>Class</code>) classifying samples into seven varieties:
+        Seker, Barbunya, Bombay, Cali, Horoz, Sira, and Dermason.
+    </p>
+
+    <div class="figure-card">
+        <img src="figures/dataset_overview.png" alt="Dataset Overview">
+        <div class="figure-caption">Figure 1: Overview of dataset dimensions, attribute data types, and duplicate records audit.</div>
+    </div>
+
+    <h2>2. Data Quality and Integrity Audit</h2>
+    <p>
+        A comprehensive data quality evaluation examined missingness, duplicates, invalid numerical values, and feature variance.
+    </p>
+    <ul>
+        <li><strong>Missing Values:</strong> Exactly 0 missing cells out of 231,387 total cells (0.00% missingness).</li>
+        <li><strong>Exact Duplicates:</strong> 68 exact duplicate records (0.50% of the dataset) were detected. In compliance with Phase 2 boundaries, these rows are cataloged in <code>reports/tables/duplicate_report.csv</code> but remain unaltered in the raw source.</li>
+        <li><strong>Invalid Values:</strong> No negative values, non-finite values, or infinite representations were detected across all 16 numerical features.</li>
+        <li><strong>Variance Audit:</strong> Zero constant or near-constant features were found. Every attribute exhibits positive non-zero variance.</li>
+    </ul>
+
+    <div class="figure-card">
+        <img src="figures/missing_values.png" alt="Missing Values Verification">
+        <div class="figure-caption">Figure 2: Attribute completeness audit verifying zero missing values across all 17 columns.</div>
+    </div>
+
+    <h2>3. Target Class Distribution</h2>
+    <p>
+        The dataset exhibits moderate cultivar imbalance. Dermason represents the largest class with 3,546 instances (26.05%),
+        whereas Bombay represents the smallest class with 522 instances (3.84%). The imbalance ratio between majority and minority class is 6.79:1.
+    </p>
+    <table border="1" class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Class</th>
+      <th>Sample Count</th>
+      <th>Percentage</th>
+      <th>Ratio to Majority (1:N)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DERMASON</td>
+      <td>3546</td>
+      <td>26.05</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>SIRA</td>
+      <td>2636</td>
+      <td>19.37</td>
+      <td>1.35</td>
+    </tr>
+    <tr>
+      <td>SEKER</td>
+      <td>2027</td>
+      <td>14.89</td>
+      <td>1.75</td>
+    </tr>
+    <tr>
+      <td>HOROZ</td>
+      <td>1928</td>
+      <td>14.17</td>
+      <td>1.84</td>
+    </tr>
+    <tr>
+      <td>CALI</td>
+      <td>1630</td>
+      <td>11.98</td>
+      <td>2.18</td>
+    </tr>
+    <tr>
+      <td>BARBUNYA</td>
+      <td>1322</td>
+      <td>9.71</td>
+      <td>2.68</td>
+    </tr>
+    <tr>
+      <td>BOMBAY</td>
+      <td>522</td>
+      <td>3.84</td>
+      <td>6.79</td>
+    </tr>
+  </tbody>
+</table>
+
+    <div class="figure-card">
+        <img src="figures/class_distribution.png" alt="Target Class Distribution">
+        <div class="figure-caption">Figure 3: Frequency and proportion breakdown across the seven dry bean varieties.</div>
+    </div>
+
+    <h2>4. Univariate Feature Distributions</h2>
+    <p>
+        Features fall into three distinct dimensional categories: scale attributes (e.g. Area, Perimeter), boundary ratios
+        (e.g. AspectRation, Eccentricity, Solidity), and derived morphological shape factors (ShapeFactor1 through ShapeFactor4).
+        Size attributes exhibit notable right-skewness due to the presence of large Bombay and Cali seeds.
+    </p>
+
+    <div class="figure-card">
+        <img src="figures/numerical_distributions.png" alt="Numerical Distributions">
+        <div class="figure-caption">Figure 4: Frequency histograms and kernel density estimates for all 16 morphological attributes.</div>
+    </div>
+
+    <div class="figure-card">
+        <img src="figures/feature_boxplots.png" alt="Feature Boxplots">
+        <div class="figure-caption">Figure 5: Univariate boxplots displaying feature dispersion, medians, and statistical tail observations.</div>
+    </div>
+
+    <h2>5. Correlation Analysis and Multicollinearity Diagnosis</h2>
+    <p>
+        Pearson and Spearman correlation matrices reveal substantial collinearity among physical size metrics.
+        Specifically, Area, ConvexArea, Perimeter, and EquivDiameter exhibit linear correlation coefficients exceeding 0.98.
+        Similarly, AspectRation and Eccentricity correlate at r = 0.92.
+    </p>
+
+    <div class="figure-card">
+        <img src="figures/correlation_pearson.png" alt="Pearson Correlation Matrix">
+        <div class="figure-caption">Figure 6: Pearson linear correlation matrix across all 16 numerical features.</div>
+    </div>
+
+    <div class="figure-card">
+        <img src="figures/feature_relationships.png" alt="Bivariate Relationships">
+        <div class="figure-caption">Figure 7: Bivariate scatter plots showing class clustering across key feature pairs.</div>
+    </div>
+
+    <h2>6. Statistical Outlier Audit</h2>
+    <p>
+        Outliers were audited using both the Interquartile Range (IQR, 1.5 * IQR) and Z-score (|z| > 3.0) standards.
+        The highest number of statistical outliers occurs in Area (577 IQR outliers, 4.24%) and MinorAxisLength (491 IQR outliers, 3.61%).
+        These observations correspond to legitimately larger cultivars (Bombay) rather than sensor measurement errors,
+        confirming that raw outlier removal would risk discarding valid biological variety information.
+    </p>
+
+    <div class="figure-card">
+        <img src="figures/outlier_analysis.png" alt="Outlier Frequency Comparison">
+        <div class="figure-caption">Figure 8: Outlier count comparison between the IQR rule and Z-score threshold.</div>
+    </div>
+
+    <h2>7. Class-Stratified Comparisons and Hypothesis Testing</h2>
+    <p>
+        One-way ANOVA and the non-parametric Kruskal-Wallis test were conducted across the seven cultivars for all 16 features.
+        With Bonferroni multiple-comparison correction applied, all 16 features demonstrate statistically significant differences (p &lt; 0.001).
+        Variance decomposition indicates that <code>ShapeFactor1</code> (F = 9,331.1, &eta;&sup2; = 0.804), <code>Compactness</code> (F = 7,613.2),
+        and <code>ShapeFactor3</code> (F = 6,864.8) possess the highest between-to-within class variance ratios.
+    </p>
+
+    <div class="figure-card">
+        <img src="figures/class_wise_analysis.png" alt="Class-Stratified Violins">
+        <div class="figure-caption">Figure 9: Violin plots illustrating class-stratified distributions for primary discriminative attributes.</div>
+    </div>
+
+    <h2>8. Exploratory Principal Component Analysis (PCA)</h2>
+    <p>
+        Exploratory PCA was conducted on standardized features to assess global class separability.
+        The first two principal components capture 85.3% of total variance (PC1 = 53.9%, PC2 = 31.4%).
+        In the 2D projection, Bombay and Seker form well-isolated clusters, while Dermason and Sira show moderate overlap.
+    </p>
+
+    <div class="figure-card">
+        <img src="figures/pca_visualization.png" alt="Exploratory PCA Projection">
+        <div class="figure-caption">Figure 10: Projection of the first two principal components coloured by dry bean variety.</div>
+    </div>
+
+    <h2>9. Key Observations for Phase 3 Modeling</h2>
+    <ol>
+        <li><strong>Feature Scaling:</strong> High dynamic range between Area (~40,000) and ShapeFactor1 (~0.005) mandates feature standardization (e.g. <code>StandardScaler</code>) for distance-based and gradient-based estimators.</li>
+        <li><strong>Stratification:</strong> Stratified k-fold cross-validation is necessary to preserve the 6.79:1 class imbalance ratio across folds.</li>
+        <li><strong>Model Suitability:</strong> Tree ensembles (Random Forest, XGBoost) are well-suited to handle the observed multicollinearity without aggressive manual feature elimination.</li>
+        <li><strong>Boundary Preservation:</strong> No data cleaning, duplicate deletion, or model fitting was performed during Phase 2.</li>
+    </ol>
+
+    <h2>10. Conclusion</h2>
+    <p>
+        Phase 2 has provided a complete, verifiable understanding of the UCI Dry Bean Dataset.
+        All statistical summaries, quality audit tables, figures, and interactive charts have been exported
+        to the project reports repository. The foundation is fully validated for subsequent preprocessing and model development.
+    </p>
+</div>
+
+</body>
+</html>

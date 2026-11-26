@@ -1,0 +1,45 @@
+{
+  "model_name": "logistic_regression",
+  "saved_at": "2026-11-26T13:15:53.140285+00:00",
+  "pipeline_steps": [
+    "scaler",
+    "classifier"
+  ],
+  "features": [
+    "Area",
+    "Perimeter",
+    "MajorAxisLength",
+    "MinorAxisLength",
+    "AspectRation",
+    "Eccentricity",
+    "ConvexArea",
+    "EquivDiameter",
+    "Extent",
+    "Solidity",
+    "roundness",
+    "Compactness",
+    "ShapeFactor1",
+    "ShapeFactor2",
+    "ShapeFactor3",
+    "ShapeFactor4",
+    "Area_to_Perimeter",
+    "Axis_Ratio",
+    "Axis_Difference",
+    "Convex_Area_Ratio",
+    "Compactness_Roundness_Ratio",
+    "EquivDiameter_to_MajorAxis"
+  ],
+  "classes": [
+    "BARBUNYA",
+    "BOMBAY",
+    "CALI",
+    "DERMASON",
+    "HOROZ",
+    "SEKER",
+    "SIRA"
+  ],
+  "validation_accuracy": 0.9227,
+  "validation_macro_f1": 0.9314,
+  "validation_weighted_f1": 0.9226,
+  "fit_time_seconds": 0.2211
+}

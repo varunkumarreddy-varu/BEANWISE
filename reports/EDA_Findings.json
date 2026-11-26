@@ -1,0 +1,139 @@
+{
+  "dataset_metadata": {
+    "filename": "Dry_Bean_Dataset.xlsx",
+    "total_records": 13611,
+    "total_columns": 17,
+    "numerical_features_count": 16,
+    "target_column": "Class",
+    "target_classes_count": 7,
+    "classes": [
+      "BARBUNYA",
+      "BOMBAY",
+      "CALI",
+      "DERMASON",
+      "HOROZ",
+      "SEKER",
+      "SIRA"
+    ]
+  },
+  "data_quality": {
+    "total_missing_cells": 0,
+    "missing_percentage": 0.0,
+    "exact_duplicate_count": 68,
+    "exact_duplicate_percentage": 0.4996,
+    "constant_features": [],
+    "low_variance_features": [
+      "Solidity",
+      "ShapeFactor1",
+      "ShapeFactor2",
+      "ShapeFactor4"
+    ]
+  },
+  "class_imbalance": {
+    "majority_class": "DERMASON",
+    "majority_count": 3546,
+    "minority_class": "BOMBAY",
+    "minority_count": 522,
+    "imbalance_ratio": 6.79
+  },
+  "strong_correlations": {
+    "strong_positive_pairs_count": 19,
+    "strong_negative_pairs_count": 12,
+    "top_positive_pairs": [
+      {
+        "Feature 1": "Area",
+        "Feature 2": "ConvexArea",
+        "Pearson r": 0.9999,
+        "Spearman rho": 0.9999
+      },
+      {
+        "Feature 1": "Compactness",
+        "Feature 2": "ShapeFactor3",
+        "Pearson r": 0.9987,
+        "Spearman rho": 1.0
+      },
+      {
+        "Feature 1": "Perimeter",
+        "Feature 2": "EquivDiameter",
+        "Pearson r": 0.9914,
+        "Spearman rho": 0.9916
+      },
+      {
+        "Feature 1": "ConvexArea",
+        "Feature 2": "EquivDiameter",
+        "Pearson r": 0.9852,
+        "Spearman rho": 0.9999
+      },
+      {
+        "Feature 1": "Area",
+        "Feature 2": "EquivDiameter",
+        "Pearson r": 0.985,
+        "Spearman rho": 1.0
+      }
+    ],
+    "top_negative_pairs": [
+      {
+        "Feature 1": "AspectRation",
+        "Feature 2": "Compactness",
+        "Pearson r": -0.9877,
+        "Spearman rho": -0.9997
+      },
+      {
+        "Feature 1": "Eccentricity",
+        "Feature 2": "ShapeFactor3",
+        "Pearson r": -0.9811,
+        "Spearman rho": -0.9997
+      },
+      {
+        "Feature 1": "AspectRation",
+        "Feature 2": "ShapeFactor3",
+        "Pearson r": -0.9786,
+        "Spearman rho": -0.9997
+      },
+      {
+        "Feature 1": "Eccentricity",
+        "Feature 2": "Compactness",
+        "Pearson r": -0.9703,
+        "Spearman rho": -0.9997
+      },
+      {
+        "Feature 1": "MinorAxisLength",
+        "Feature 2": "ShapeFactor1",
+        "Pearson r": -0.9472,
+        "Spearman rho": -0.9995
+      }
+    ]
+  },
+  "pca_exploratory_variance": {
+    "pc1_variance_pct": 55.47,
+    "pc2_variance_pct": 26.43,
+    "cumulative_2pc_variance_pct": 81.9
+  },
+  "top_discriminative_features_by_f_ratio": [
+    {
+      "Feature": "Area",
+      "F-Ratio (MSB/MSW)": 29017.5105,
+      "Eta-Squared (Variance Explained)": 0.9275
+    },
+    {
+      "Feature": "ConvexArea",
+      "F-Ratio (MSB/MSW)": 28961.7912,
+      "Eta-Squared (Variance Explained)": 0.9274
+    },
+    {
+      "Feature": "EquivDiameter",
+      "F-Ratio (MSB/MSW)": 25444.5478,
+      "Eta-Squared (Variance Explained)": 0.9182
+    },
+    {
+      "Feature": "Perimeter",
+      "F-Ratio (MSB/MSW)": 24283.6637,
+      "Eta-Squared (Variance Explained)": 0.9146
+    },
+    {
+      "Feature": "MinorAxisLength",
+      "F-Ratio (MSB/MSW)": 22442.3864,
+      "Eta-Squared (Variance Explained)": 0.9082
+    }
+  ]
+}
