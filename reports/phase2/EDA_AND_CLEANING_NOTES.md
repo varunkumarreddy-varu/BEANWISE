@@ -1,32 +1,72 @@
-\# BEANWISE – Exploratory Data Analysis and Data Cleaning
+# BEANWISE
+
+## Exploratory Data Analysis and Data Cleaning Report
 
 
 
-\## 1. Project Overview
+**Project Domain:** Data Science and Machine Learning
+
+**Dataset:** Dry Bean Dataset
+
+**Source:** UCI Machine Learning Repository (Dataset ID: 602)
 
 
 
-BEANWISE is a machine learning-based dry bean classification project. The objective is to classify dry bean varieties using their physical and morphological characteristics.
+---
 
 
 
-The project uses the Dry Bean Dataset obtained from the UCI Machine Learning Repository. It contains numerical measurements extracted from bean images.
+## 1. Introduction
 
 
 
-\## 2. Dataset Description
+BEANWISE is a machine learning-based application developed to classify seven varieties of dry beans using their physical and morphological characteristics.
 
 
 
-The dataset consists of 13,611 original observations and 16 numerical input features.
+The project uses numerical measurements extracted from bean images. Exploratory Data Analysis (EDA) and data preprocessing are important initial stages because they help understand the dataset, identify data quality issues, and prepare reliable input for machine learning models.
 
 
 
-Each observation represents one dry bean sample. The target variable is `Class`, which identifies the bean variety.
+This document summarizes the dataset, exploratory analysis, data cleaning, and preparation activities performed during the project.
 
 
 
-The dataset contains seven varieties:
+## 2. Dataset Overview
+
+
+
+The Dry Bean Dataset contains measurements describing the shape and physical properties of individual bean samples.
+
+
+
+### 2.1 Dataset Statistics
+
+
+
+| Attribute | Description |
+
+|---|---:|
+
+| Original observations | 13,611 |
+
+| Observations after duplicate removal | 13,543 |
+
+| Duplicate records removed | 68 |
+
+| Numerical input features | 16 |
+
+| Target variable | Class |
+
+| Number of classes | 7 |
+
+
+
+### 2.2 Bean Categories
+
+
+
+The dataset contains the following seven bean varieties:
 
 
 
@@ -46,7 +86,11 @@ The dataset contains seven varieties:
 
 
 
-\### Important Features
+### 2.3 Description of Input Features
+
+
+
+The dataset contains 16 numerical measurements.
 
 
 
@@ -54,157 +98,187 @@ The dataset contains seven varieties:
 
 |---|---|
 
-| Area | Total number of pixels inside the bean |
+| Area | Number of pixels within the bean boundary |
 
-| Perimeter | Circumference of the bean |
+| Perimeter | Length of the bean boundary |
 
 | MajorAxisLength | Length of the major axis |
 
 | MinorAxisLength | Length of the minor axis |
 
-| AspectRation | Ratio of major to minor axis |
+| AspectRation | Ratio of major axis length to minor axis length |
 
-| Eccentricity | Measure of deviation from circular shape |
+| Eccentricity | Measure of deviation from a circular shape |
 
 | ConvexArea | Area of the convex hull |
 
-| EquivDiameter | Equivalent diameter of the bean |
+| EquivDiameter | Diameter of a circle with equivalent area |
 
 | Extent | Ratio of bean area to bounding-box area |
 
-| Solidity | Ratio of area to convex area |
+| Solidity | Ratio of bean area to convex area |
 
-| Roundness | Measure of circularity |
+| Roundness | Measure of how close the shape is to a circle |
 
-| Compactness | Measure of compactness |
+| Compactness | Measure of shape compactness |
 
-| ShapeFactor1–4 | Additional shape-related measurements |
+| ShapeFactor1 | First shape-related measurement |
 
+| ShapeFactor2 | Second shape-related measurement |
 
+| ShapeFactor3 | Third shape-related measurement |
 
-\## 3. Exploratory Data Analysis
+| ShapeFactor4 | Fourth shape-related measurement |
 
 
 
-Exploratory Data Analysis (EDA) was performed to understand the dataset, identify patterns, examine feature relationships, and study differences between bean varieties.
+## 3. Exploratory Data Analysis
 
 
 
-\### 3.1 Dataset Inspection
+Exploratory Data Analysis was performed to understand the structure, distribution, and relationships within the dataset.
 
 
 
-\- Examined the number of rows and columns.
+### 3.1 Initial Dataset Inspection
 
-\- Identified numerical and categorical attributes.
 
-\- Checked feature data types.
 
-\- Reviewed sample records.
+The initial inspection focused on understanding the dataset structure.
 
-\- Examined descriptive statistics such as mean, median, standard deviation, minimum, and maximum.
 
 
+The following aspects were examined:
 
-\### 3.2 Class Distribution Analysis
 
 
+- Number of observations and features.
 
-The target variable `Class` was examined to understand the distribution of the seven bean varieties.
+- Column names and data types.
 
+- Sample records from the dataset.
 
+- Numerical descriptive statistics.
 
-This analysis helps identify class imbalance and understand how many observations belong to each variety.
+- Target variable categories.
 
 
 
-\### 3.3 Feature Distribution Analysis
+Descriptive statistics such as mean, standard deviation, minimum, maximum, and quartiles help understand the range and variation of the measurements.
 
 
 
-Histograms and distribution plots were used to study numerical feature distributions.
+### 3.2 Class Distribution
 
 
 
-The analysis helped identify:
+The target variable `Class` represents the variety of each bean sample.
 
 
 
-\- Skewed distributions.
+Studying the class distribution helps understand how observations are distributed among the seven categories.
 
-\- Differences in measurement ranges.
 
-\- Unusual observations.
 
-\- Features with varying levels of dispersion.
+This information is useful when selecting appropriate data splitting and model evaluation strategies.
 
 
 
-\### 3.4 Correlation Analysis
+### 3.3 Numerical Feature Distribution
 
 
 
-Correlation analysis was used to examine relationships between numerical features.
+Numerical feature distributions were examined to understand the variation in bean measurements.
 
 
 
-A correlation heatmap helped identify strongly related measurements and potential multicollinearity.
+Histograms and distribution plots help identify:
 
 
 
-\### 3.5 Outlier Analysis
+- Skewness in numerical measurements.
 
+- Differences in feature scales.
 
+- Concentration of observations.
 
-Boxplots and statistical summaries were used to investigate extreme observations.
+- Unusual values and extreme observations.
 
 
 
-Outliers were examined carefully because some extreme measurements may represent genuine differences in bean sizes and shapes rather than incorrect data.
+### 3.4 Correlation Analysis
 
 
 
-\### 3.6 Feature Comparison Across Classes
+Correlation analysis helps identify relationships between numerical features.
 
 
 
-Feature comparisons were used to understand how physical characteristics differ among the seven bean varieties.
+A correlation matrix and heatmap can be used to examine the strength and direction of relationships.
 
 
 
-These comparisons helped identify potentially useful features for classification.
+Highly correlated features may contain overlapping information, which is useful to consider during feature engineering and feature selection.
 
 
 
-\## 4. Data Cleaning and Preprocessing
+### 3.5 Outlier Analysis
 
 
 
-Data cleaning was performed to improve dataset quality and prepare the observations for machine learning.
+Outlier analysis helps identify observations with unusually high or low measurements.
 
 
 
-\### 4.1 Missing Value Inspection
+Boxplots and statistical summaries can be used to examine extreme values.
 
 
 
-The dataset was checked for missing values across all columns.
+However, extreme measurements are not automatically incorrect. Differences in bean size and shape may naturally produce unusual observations.
 
 
 
-Missing values were examined before proceeding with model development.
+### 3.6 Comparison Across Bean Varieties
 
 
 
-\### 4.2 Duplicate Record Removal
+Comparing numerical measurements across the seven classes helps identify physical characteristics that distinguish one variety from another.
 
 
 
-Duplicate observations were identified and removed to avoid repeated records affecting the analysis.
+These comparisons provide useful information for selecting features for the classification process.
 
 
 
-| Description | Records |
+## 4. Data Cleaning and Preprocessing
+
+
+
+Data cleaning was performed to improve the quality and consistency of the dataset before machine learning development.
+
+
+
+### 4.1 Missing Value Inspection
+
+
+
+The dataset was inspected for missing values.
+
+
+
+Missing value analysis is important because incomplete observations may affect statistical analysis and model training.
+
+
+
+### 4.2 Duplicate Record Removal
+
+
+
+Duplicate observations were identified and removed to avoid repeated records influencing the analysis.
+
+
+
+| Description | Number of Records |
 
 |---|---:|
 
@@ -212,121 +286,161 @@ Duplicate observations were identified and removed to avoid repeated records aff
 
 | Duplicate records removed | 68 |
 
-| Cleaned dataset | 13,543 |
+| Final cleaned dataset | 13,543 |
 
 
 
-\### 4.3 Data Type Validation
+The resulting dataset contains 13,543 observations.
 
 
 
-Feature data types were examined to ensure that numerical measurements were stored in suitable numerical formats.
+### 4.3 Data Type Verification
 
 
 
-\### 4.4 Data Validation
+Feature data types were examined to ensure that numerical measurements were represented using appropriate numerical formats.
 
 
 
-The cleaned dataset was checked for consistency and suitability for subsequent analysis.
+### 4.4 Data Consistency Checks
 
 
 
-The target variable and input features were reviewed before model development.
+The dataset was reviewed for consistency and suitability for subsequent machine learning operations.
 
 
 
-\### 4.5 Dataset Preparation
+The input features and target variable were checked before proceeding to the next stages.
 
 
 
-The cleaned dataset was prepared for subsequent feature engineering, model training, and evaluation.
+### 4.5 Cleaned Dataset Preparation
 
 
 
-\## 5. Dataset Partitioning
+After duplicate removal and data validation, the cleaned observations were prepared for feature engineering and model development.
 
 
 
-The cleaned dataset was divided into three subsets.
+## 5. Dataset Partitioning
 
 
 
-| Dataset | Records | Purpose |
+The cleaned dataset was divided into three subsets for model development and evaluation.
+
+
+
+| Dataset | Number of Records | Purpose |
 
 |---|---:|---|
 
-| Training | 9,479 | Model training |
+| Training | 9,479 | Training machine learning models |
 
 | Validation | 2,032 | Model comparison and tuning |
 
 | Testing | 2,032 | Independent final evaluation |
 
-| \*\*Total\*\* | \*\*13,543\*\* | |
+| **Total** | **13,543** | |
 
 
 
-Stratified partitioning was used to maintain the class distribution across the subsets.
+Stratified partitioning was used to maintain the distribution of the seven bean varieties across the subsets.
 
 
 
-\## 6. Key Observations
+The testing subset was kept separate for independent evaluation of the selected model.
 
 
 
-The EDA process provided the following insights:
+## 6. Key Findings
 
 
 
-\- The dataset contains seven different dry bean varieties.
-
-\- Each variety has distinct physical and morphological characteristics.
-
-\- Numerical features have different measurement scales.
-
-\- Some features show strong correlations with other measurements.
-
-\- Feature distributions vary across bean varieties.
-
-\- Data cleaning reduced the dataset from 13,611 to 13,543 observations after duplicate removal.
+The exploratory analysis and data preparation stages provided the following observations:
 
 
 
-\## 7. Conclusion
+- The dataset contains seven distinct dry bean varieties.
+
+- Each sample is represented using 16 numerical measurements.
+
+- The features describe different physical and morphological properties.
+
+- Numerical features have different measurement ranges.
+
+- Relationships between numerical features provide useful information for feature selection.
+
+- Duplicate removal reduced the dataset from 13,611 to 13,543 observations.
+
+- The cleaned dataset was prepared for subsequent feature engineering and classification.
 
 
 
-Exploratory Data Analysis helped develop a better understanding of the Dry Bean Dataset and its underlying patterns.
+## 7. Outcome of EDA and Data Cleaning
 
 
 
-The data cleaning process removed duplicate observations and prepared the dataset for further analysis.
+The EDA and data cleaning stages established a foundation for the remaining machine learning workflow.
 
 
 
-The resulting dataset contains 13,543 observations and 16 numerical input features. It was subsequently used for feature engineering, machine learning model development, and independent evaluation.
+The prepared dataset contains:
 
 
 
-\## 8. Related Project Files
+- 13,543 observations.
+
+- 16 numerical input features.
+
+- One target variable named `Class`.
+
+- Seven dry bean varieties.
 
 
 
-\- `notebooks/02\_Exploratory\_Data\_Analysis.ipynb`
-
-\- `notebooks/03\_Data\_Cleaning\_Preprocessing.ipynb`
-
-\- `reports/phase2/`
+The dataset was subsequently used for feature engineering, model training, comparison, and final evaluation.
 
 
 
-\---
+## 8. Related Project Files
 
 
 
-\*\*Project:\*\* BEANWISE – AI-Powered Dry Bean Classification Platform  
+The following notebooks contain the corresponding project work:
 
-\*\*Domain:\*\* Data Science and Machine Learning  
 
-\*\*Dataset Source:\*\* UCI Machine Learning Repository – Dry Bean Dataset (ID: 602)
+
+| File | Description |
+
+|---|---|
+
+| `02_Exploratory_Data_Analysis.ipynb` | Exploratory analysis and visualization |
+
+| `03_Data_Cleaning_Preprocessing.ipynb` | Data cleaning and preprocessing |
+
+
+
+## 9. Conclusion
+
+
+
+Exploratory Data Analysis and data cleaning are essential steps in developing a reliable machine learning system.
+
+
+
+In the BEANWISE project, these stages helped understand the Dry Bean Dataset, examine numerical measurements, investigate relationships between features, and remove duplicate observations.
+
+
+
+The resulting cleaned dataset provides the foundation for feature engineering, machine learning model development, and performance evaluation.
+
+
+
+---
+
+
+
+**BEANWISE â€“ AI-Powered Dry Bean Classification Platform**
+
+*Data Science Project Documentation*
 
