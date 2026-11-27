@@ -70,19 +70,19 @@ The dataset contains the following seven bean varieties:
 
 
 
-1\. SEKER
+1. SEKER
 
-2\. BARBUNYA
+2. BARBUNYA
 
-3\. BOMBAY
+3. BOMBAY
 
-4\. CALI
+4. CALI
 
-5\. HOROZ
+5. HOROZ
 
-6\. SIRA
+6. SIRA
 
-7\. DERMASON
+7. DERMASON
 
 
 
@@ -440,7 +440,7 @@ The resulting cleaned dataset provides the foundation for feature engineering, m
 
 
 
-**BEANWISE â€“ AI-Powered Dry Bean Classification Platform**
+**BEANWISE - AI-Powered Dry Bean Classification Platform**
 
 *Data Science Project Documentation*
 
