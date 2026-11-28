@@ -1,4 +1,0 @@
-Base Model,Tuned Model,Best CV Macro F1,Best Parameters,Tuning Search Time (s),Total Candidates Evaluated
-svm_rbf,svm_rbf_tuned,0.9457,"{'classifier__C': 10.0, 'classifier__gamma': 0.05}",4.53,9
-xgboost,xgboost_tuned,0.9439,"{'classifier__learning_rate': 0.05, 'classifier__max_depth': 4, 'classifier__n_estimators': 200}",19.95,8
-random_forest,random_forest_tuned,0.9367,"{'classifier__max_depth': 15, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 100}",26.28,12
