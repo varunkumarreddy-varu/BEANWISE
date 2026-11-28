@@ -1,17 +1,4 @@
-"""
-BEANWISE: AI-Powered Dry Bean Classification Platform
-Production Web Application
 
-Interface Features:
-- Direct opening to the primary prediction experience.
-- Manual entry of all 16 numerical morphological measurements with validation.
-- Real-time prediction with dynamic display of authentic dry bean photographs.
-- Batch CSV prediction with downloadable results.
-- Botanical bean variety gallery.
-- Session prediction history.
-- Model performance insights based on independent test evaluation.
-- No decorative emojis, academic phase labels, or AI-generated marketing phrases.
-"""
 
 import sys
 import io
